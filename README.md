@@ -1,5 +1,7 @@
 # Claude for Science — Installation Guide (WSL)
 
+[![Watch the video](Thumbnail.png)](https://youtu.be/DntCMpE7vtA?si=G9wi3hatOJOCa6Ee)
+
 Accompanies this YouTube video: https://youtu.be/DntCMpE7vtA?si=G9wi3hatOJOCa6Ee
 
 Step-by-step guide to install and run **Claude for Science** on Windows via WSL.
