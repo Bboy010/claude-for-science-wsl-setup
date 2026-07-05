@@ -1,0 +1,54 @@
+# Guide d'installation — Claude for Science sur WSL
+
+Vidéo YouTube : https://youtu.be/DntCMpE7vtA?si=G9wi3hatOJOCa6Ee
+
+## Étapes
+
+1. **Vérifier votre éligibilité**
+   Claude Science est en bêta, disponible pour les plans Pro, Max, Team et Enterprise. Si vous êtes sur un compte Team/Enterprise, demandez à votre admin d'activer Claude Science pour votre organisation.
+
+2. **Mettre à jour WSL** (dans PowerShell, côté Windows)
+   ```powershell
+   wsl --update
+   wsl -l -v
+   ```
+   Assurez-vous d'utiliser WSL2 avec une distribution comme Ubuntu.
+
+3. **Télécharger le binaire Linux** depuis votre terminal WSL
+   ```bash
+   curl -LO https://downloads.claude.ai/claude-science/latest/linux-x64 -o claude-science
+   ```
+
+4. **Installer les dépendances**
+   ```bash
+   sudo apt update && sudo apt install -y bubblewrap
+   ```
+   Une fois installé, vérifiez avec :
+   ```bash
+   bwrap --version
+   ```
+   Puis installez :
+   ```bash
+   sudo apt-get install -y socat
+   ```
+
+5. **Rendre le binaire exécutable et le lancer**
+   ```bash
+   chmod +x claude-science
+   ./claude-science
+   ```
+   Connectez-vous avec votre compte Anthropic (Pro/Max/Team/Enterprise) lors du premier lancement — l'authentification se fait probablement via navigateur (comme pour Claude Code).
+
+6. **Configurer l'accès au calcul** (optionnel selon vos besoins)
+   - Pour un cluster HPC existant : configurez vos clés SSH dans WSL (`~/.ssh/`) pour vous connecter à votre login node.
+   - Pour du calcul à la demande : liez votre compte Modal.
+
+7. **Connecter vos outils scientifiques**
+   Claude Science s'intègre avec des modèles spécialisés (Evo 2, Boltz-2, OpenFold3) via le BioNeMo Agent Toolkit de NVIDIA — ces connecteurs se configurent depuis l'interface de l'app une fois lancée.
+
+8. ⚠️ **Lien de connexion à usage unique**
+   Le lien de connexion est un mot de passe à usage unique, valable 3 minutes — s'il expire avant que vous l'ouvriez, régénérez-en un avec :
+   ```bash
+   claude-science url
+   ```
+   Une fois la page ouverte et authentifiée, l'onglet reste connecté jusqu'au redémarrage du daemon. Le warning `pidIsOperonDaemon` est bénin (juste un souci de détection interne du process pour `operon stop` — n'affecte pas le fonctionnement normal).
