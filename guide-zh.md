@@ -16,7 +16,8 @@ YouTube 视频：https://youtu.be/DntCMpE7vtA?si=G9wi3hatOJOCa6Ee
 
 3. **下载 Linux 二进制文件**（在 WSL 终端中执行）
    ```bash
-   curl -LO https://downloads.claude.ai/claude-science/latest/linux-x64 -o claude-science
+   curl -LO https://downloads.claude.ai/claude-science/latest/linux-x64
+   mv linux-x64 claude-science
    ```
 
 4. **安装依赖项**
