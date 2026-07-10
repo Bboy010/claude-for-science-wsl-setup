@@ -16,7 +16,8 @@ YouTube video: https://youtu.be/DntCMpE7vtA?si=G9wi3hatOJOCa6Ee
 
 3. **Download the Linux binary** from your WSL terminal
    ```bash
-   curl -LO https://downloads.claude.ai/claude-science/latest/linux-x64 -o claude-science
+   curl -LO https://downloads.claude.ai/claude-science/latest/linux-x64
+   mv linux-x64 claude-science
    ```
 
 4. **Install dependencies**
