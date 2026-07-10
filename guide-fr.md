@@ -16,7 +16,8 @@ Vidéo YouTube : https://youtu.be/DntCMpE7vtA?si=G9wi3hatOJOCa6Ee
 
 3. **Télécharger le binaire Linux** depuis votre terminal WSL
    ```bash
-   curl -LO https://downloads.claude.ai/claude-science/latest/linux-x64 -o claude-science
+   curl -LO https://downloads.claude.ai/claude-science/latest/linux-x64
+   mv linux-x64 claude-science
    ```
 
 4. **Installer les dépendances**
